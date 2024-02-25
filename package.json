@@ -1,0 +1,18 @@
+{
+  "name": "nodejs-gmp",
+  "version": "1.0.0",
+  "description": "Nodejs Global Mentoring Program - 2024",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Iryna Kavalenka",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
