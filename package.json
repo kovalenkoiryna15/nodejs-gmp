@@ -4,7 +4,8 @@
   "description": "Nodejs Global Mentoring Program - 2024",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "start:task2": "nodemon activity-monitor"
   },
   "keywords": [
     "nodejs"
