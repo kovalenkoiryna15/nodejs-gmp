@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import events from 'events';
 import readline from 'readline/promises';
+import csvtojson from 'csvtojson';
 
 function prepareTxtFile() {
   if (!fs.existsSync('./txt/m3-t3-data.txt')) {
@@ -57,12 +58,25 @@ function transformRow(line, headers) {
   }, {});
 }
 
+async function parseCsvFile2(readable, writable) {
+  csvtojson()
+    .fromStream(readable)
+    .subscribe(
+      (json) => {
+        writable.write(`${JSON.stringify(json)}\n`);
+      },
+      (err) => { console.error(err) },
+      () => console.log('Parsing completed.'),
+    );
+}
+
 prepareTxtFile();
 
 try {
   const readable = fs.createReadStream(path.resolve('./csv/m3-t3-data.csv'));
   const writable = fs.createWriteStream(path.resolve('./txt/m3-t3-data.txt'));
-  await parseCsvFile(readable, writable);
+  // await parseCsvFile(readable, writable); // without csvtojson
+  await parseCsvFile2(readable, writable);
 } catch (err) {
   if (err) {
     console.error(err);
