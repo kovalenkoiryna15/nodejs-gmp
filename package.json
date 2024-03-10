@@ -4,8 +4,11 @@
   "description": "Nodejs Global Mentoring Program - 2024",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
-    "start:task2": "nodemon activity-monitor"
+    "start": "nodemon scripts",
+    "module2": "nodemon scripts/activity-monitor",
+    "module3:task1": "nodemon scripts/event-emitter.js",
+    "module3:task2": "nodemon scripts/with-time.js",
+    "module3:task3": "nodemon scripts/stream.js"
   },
   "keywords": [
     "nodejs"
@@ -15,5 +18,8 @@
   "type": "module",
   "devDependencies": {
     "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "csvtojson": "^2.0.10"
   }
 }
