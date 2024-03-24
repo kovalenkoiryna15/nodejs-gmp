@@ -4,7 +4,11 @@
   "description": "Nodejs Global Mentoring Program - 2024",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon scripts",
+    "start": "pm2 start rest-api/index.js",
+    "start:watch": "pm2 start rest-api/index.js --watch",
+    "start:logs": "../node_modules/.bin/pm2 logs",
+    "stop": "pm2 stop rest-api/index.js",
+    "module1": "nodemon scripts",
     "module2": "nodemon scripts/activity-monitor",
     "module3:task1": "nodemon scripts/event-emitter.js",
     "module3:task2": "nodemon scripts/with-time.js",
@@ -17,7 +21,8 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "pm2": "^5.3.1"
   },
   "dependencies": {
     "csvtojson": "^2.0.10"
